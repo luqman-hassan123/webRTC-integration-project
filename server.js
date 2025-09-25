@@ -6,6 +6,15 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
+// ✅ Allow eval during development
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+  );
+  next();
+});
+
 wss.on("connection", (ws) => {
   ws.on("message", (message) => {
     wss.clients.forEach((client) => {

@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WebRTC Audio Call</title>
+  <title>WebRTC Call</title>
 </head>
 <body>
-  <h2>WebRTC Audio Call</h2>
+  <h2>WebRTC Video/Audio Call</h2>
   <button id="startCall">Start Call</button>
-  <button id="answerCall">Answer Call</button>
+  <button id="answerCall" disabled>Answer Call</button>
 
-  <h3>Remote Audio</h3>
-  <audio id="remoteAudio" autoplay></audio>
+  <h3>Local Stream</h3>
+  <video id="localVideo" autoplay playsinline muted></video>
 
-  <script src="caller.js"></script>
-  <script src="receiver.js"></script>
+  <h3>Remote Stream</h3>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <script src="client.js"></script>
 </body>
 </html>
